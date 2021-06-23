@@ -4,13 +4,11 @@ import json
 import os
 from discord.ext import commands
 
-# COPYRIGHT: Arty, Benny.
 
 TOKEN = json.load(open("config.json"))["token"]
 DEFAULTPREFIX = json.load(open("config.json"))["default_prefix"]
-INVITE = "https://discord.com/api/oauth2/authorize?client_id=838084070986350642&permissions=8&scope=bot"
 
-EMBEDFOOTER = "Developed by Arty & Benny"
+EMBEDFOOTER = "Change this to your own footer!"
 
 STATUSTEXT = f""
 
@@ -120,18 +118,7 @@ async def help(ctx):
 
     await ctx.send(embed=embed)
 
-@bot.command()
-async def invite(ctx):
-    msg = f"""
-Invite me with the link below!
-- <{INVITE}>
-    """
-
-    embed = discord.Embed(title="\💨 Invite", description=msg)
-    embed.set_footer(text=EMBEDFOOTER)
-
-    await ctx.send(embed=embed)
-
+=
 @bot.group()
 async def vc(ctx):
     if str(ctx.author.id) in json.load(open("data/privateChannels.json")):
